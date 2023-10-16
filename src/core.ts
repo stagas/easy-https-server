@@ -10,8 +10,11 @@ import { HttpContext } from './easy-https-server'
 export type { OutgoingHttpHeaders }
 
 export function contentType(filename: string) {
+  const name = path.basename(filename)
   return {
-    'content-type': mime.contentType(path.basename(filename)) || 'application/octet-stream',
+    'content-type': name.endsWith('.map')
+      ? 'application/json'
+      : (mime.contentType(name) || 'application/octet-stream'),
   }
 }
 

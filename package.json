@@ -61,8 +61,8 @@
     "@typescript-eslint/parser": "5.31.0",
     "bunzee": "^1.0.0",
     "chokidar": "3.5.3",
-    "devito": "^2.0.0",
-    "dokio": "^1.1.0",
+    "devito": "file:../devito",
+    "dokio": "file:../dokio",
     "dprint": "0.30.3",
     "eslint": "8.20.0",
     "eslint-config-html-jsx": "^1.0.0",
@@ -75,12 +75,12 @@
     "rimraf": "3.0.2",
     "swcno": "0.1.1",
     "typescript": "4.7.3",
-    "utr": "^1.3.3"
+    "utr": "file:../utr"
   },
   "dependencies": {
     "@stagas/chalk": "5.0.1",
-    "everyday-node": "^1.3.0",
-    "everyday-utils": "^1.3.0",
+    "everyday-node": "file:../everyday-node",
+    "everyday-utils": "file:../everyday-utils",
     "make-cert": "1.2.1",
     "mime-types": "2.1.35",
     "qrcode-terminal": "0.12.0"
