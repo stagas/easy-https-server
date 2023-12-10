@@ -38,7 +38,8 @@
     "types": [
       "./modules.d.ts",
       "ambient-dts",
-      "@types/node"
+      "@types/node",
+      "bun-types"
     ]
   }
 }

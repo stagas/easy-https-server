@@ -1,10 +1,9 @@
-import { exists } from 'node-utils'
-import { KeyedCache } from 'utils'
 import * as fs from 'fs'
-import { CreateReadStreamOptions } from 'fs/promises'
 import type { OutgoingHttpHeaders } from 'http'
 import mime from 'mime-types'
+import { exists } from 'node-utils'
 import * as path from 'path'
+import { KeyedCache } from 'utils'
 import { HttpContext } from './easy-https-server.ts'
 
 export type { OutgoingHttpHeaders }
@@ -55,7 +54,7 @@ export const serveStatic = async (req: HttpContext['req'], res: HttpContext['res
   cache?: string
   ifNoneMatch?: string
   outgoingHeaders?: OutgoingHttpHeaders
-  readStreamOptions?: CreateReadStreamOptions
+  readStreamOptions?: fs.ReadStreamOptions
 } = {}) => {
   const isFound = await exists(pathname)
   if (!isFound) {
@@ -101,8 +100,7 @@ export const serveStatic = async (req: HttpContext['req'], res: HttpContext['res
     'content-size': size,
   })
 
-  const fd = await fs.promises.open(pathname, 'r')
-  const fileStream = fd.createReadStream(readStreamOptions)
+  const fileStream = fs.createReadStream(pathname, readStreamOptions)
 
   fileStream.pipe(res)
 }

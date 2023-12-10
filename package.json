@@ -9,8 +9,8 @@
   "scripts": {},
   "devDependencies": {
     "ambient-dts": "github:stagas/ambient-dts",
+    "bun-types": "*",
     "@types/mime-types": "2.1.1",
-    "@types/make-cert": "*",
     "@types/node": "*"
   },
   "dependencies": {
