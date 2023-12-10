@@ -1,8 +1,8 @@
 import chalk from '@stagas/chalk'
-import { Promised, promisify } from 'everyday-utils'
+import { Promised, promisify } from 'utils'
 import * as http from 'http'
 import * as https from 'https'
-import { print } from './util'
+import { print } from './util.ts'
 
 export interface HttpListenOptions {
   startPort: number
@@ -102,7 +102,7 @@ export const createHttpsServer = (options: https.ServerOptions) => {
         return writeHead.call(res, statusCode, ...rest)
       }
 
-      res.writeEarlyHints ??= writeEarlyHints
+      res.writeEarlyHints ??= writeEarlyHints as any
       res.sendRaw ??= sendRaw
       if (requests.length) requests.shift()!.resolve({ req, res })
       else queued.push({ req, res })

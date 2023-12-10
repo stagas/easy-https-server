@@ -1,11 +1,11 @@
-import { exists } from 'everyday-node'
-import { KeyedCache } from 'everyday-utils'
+import { exists } from 'node-utils'
+import { KeyedCache } from 'utils'
 import * as fs from 'fs'
 import { CreateReadStreamOptions } from 'fs/promises'
 import type { OutgoingHttpHeaders } from 'http'
 import mime from 'mime-types'
 import * as path from 'path'
-import { HttpContext } from './easy-https-server'
+import { HttpContext } from './easy-https-server.ts'
 
 export type { OutgoingHttpHeaders }
 
